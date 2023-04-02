@@ -1,0 +1,46 @@
+.experience {
+    background-color: #2d3643;
+    padding-bottom: 100px;
+}
+
+.experienceContainer {
+    max-width: 95%;
+}
+
+.expNums {
+    background-image: url("../public/exp.png");
+    background-repeat: no-repeat;
+    background-position: top;
+    padding-top: 100px !important;
+}
+
+.expLore {
+
+}
+
+.expLore h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #66b99a;
+}
+
+.expLore p {
+    font-size: 24px;
+    font-weight: lighter;
+    color: #dddde1;
+}
+
+.expNums, .expLore {
+    padding: 50px;
+}
+
+.statistic h1 {
+    font-size: 64px;
+    color: #78c3a3;
+}
+
+.statistic h2 {
+    font-weight: lighter;
+    color: #b9b8ba;
+}

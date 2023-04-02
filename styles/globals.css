@@ -1,26 +1,61 @@
+:root {
+  --color-primary: #65b899;
+  --color-secondary: #bebcc3;
+  --color-shade: #5d6a75;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: linear-gradient(to bottom, #363f49, #353f4c) !important;
 }
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: none !important;
+}
+
+a[role="button"], a[role="button"]:hover, a[role="button"].active,
+button[type="button"], button[type="button"]:hover, button[type="button"].active {
+  background-color: unset;
+  border: 1px solid #686c72 !important;
+  color: #686c72;
+  border-radius: 15px;
+  padding: 1px 20px;
+  align-self: end;
+  margin-top: auto;
+  margin-bottom: 45px;
+}
+
+a[role="button"]:hover, a[role="button"].active,
+button[type="button"]:hover, button[type="button"].active {
+  background-color: #686c72 !important;
+  color: #cdcccc;
+}
+
+a[class="carousel-control-prev"], a[class="carousel-control-next"],
+a[class="carousel-control-prev"]:hover, a[class="carousel-control-next"]:hover {
+  border: unset !important;
+  background-color: unset !important;
+}
+
+input {
+  border: none;
+  outline: none;
+  padding-left: 10px;
 }
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+#logo {
+  border-radius: 50%;
+}
+
+.nav-link {
+  transform: translateY(2px);
 }

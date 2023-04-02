@@ -4,12 +4,14 @@ import styled, {css} from "styled-components";
 import {ChangeEventHandler, useEffect, useState} from "react";
 import _, {Dictionary} from "underscore";
 import Image from "next/image";
+import Link from "next/link";
 
 type Work = {
     img: string,
     title: string,
     categories: string[],
     description: string,
+    href?: string
 }
 type SearchAttributes = { query: string, filters: string[], }
 
@@ -149,7 +151,13 @@ const WorkDetailsCol = styled(Col)`
   border-left: 1px solid var(--color-secondary);
   padding-left: 40px;
   
-  h1 {color: var(--color-primary)}
+  h1 {
+    font-size: 36px;
+    color: var(--color-primary);
+  }
+  h1:hover {
+    color: var(--color-primary-dark);
+  }
   p {
     color: var(--color-secondary);
     margin-top: 18px;
@@ -162,11 +170,11 @@ const WorkCardBadge = styled(Badge)`
 const WorkCard = (props: WorkCardProps) => {
     const {work} = props;
     return <Row>
-        <WorkCardImageCol xl={3}>
+        <WorkCardImageCol xl={5}>
             <Image src={work.img} width={150} height={200} alt={work.title} />
         </WorkCardImageCol>
         <WorkDetailsCol>
-            <h1>{work.title}</h1>
+            <Link href={work.href || "#"}><h1 role="button">{work.title}</h1></Link>
             {work.categories.map((c, i) => <WorkCardBadge key={i}>{c}</WorkCardBadge>)}
             <p>{work.description}</p>
         </WorkDetailsCol>

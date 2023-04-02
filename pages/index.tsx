@@ -4,16 +4,13 @@ import Welcome from "../components/Welcome";
 import Experience from "../components/Experience";
 import Works from "../components/Works";
 import Reviews from "../components/Reviews";
-import FadeIn from "react-fade-in";
 
 const Home: NextPage = () => {
   return (
       <BaseLayout>
-          <FadeIn>
-              <Welcome />
-              <Experience />
-              <Works />
-          </FadeIn>
+          <Welcome />
+          <Experience />
+          <Works />
       </BaseLayout>
   )
 }

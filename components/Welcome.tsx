@@ -1,6 +1,7 @@
 import {Button, Col, Row} from "react-bootstrap";
 
 import styles from "../styles/Welcome.module.css";
+import {Fade} from "react-awesome-reveal";
 
 const TechIcon = (props: { className: string }) => {
     return (
@@ -12,8 +13,10 @@ const Welcome = () => {
     return (
         <Row className={styles.welcome}>
             <Col className={`${styles.titleContainer} d-flex flex-column justify-content-end`}>
-                <h2>Hey, I&apos;m</h2>
-                <h1>ZorTik</h1>
+                <Fade cascade>
+                    <h2>Hey, I&apos;m</h2>
+                    <h1>ZorTik</h1>
+                </Fade>
             </Col>
             <Col xl={4} className={`${styles.loreContainer} d-flex flex-column`}>
                 <Row className={styles.loreBlock}>

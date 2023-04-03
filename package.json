@@ -9,13 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
     "@types/underscore": "^1.11.4",
     "bootstrap": "^5.2.2",
     "libxmljs": "^1.0.6",
     "next": "12.3.1",
     "react": "18.2.0",
+    "react-awesome-reveal": "^4.2.3",
     "react-bootstrap": "^2.5.0",
     "react-dom": "18.2.0",
+    "react-reveal": "^1.2.2",
     "styled-components": "^5.3.9",
     "underscore": "^1.13.6"
   },

@@ -3,15 +3,26 @@
     padding-bottom: 100px;
 }
 
+@media screen and (max-width: 768px) {
+    .experience {
+        padding-bottom: 200px;
+    }
+}
+
 .experienceContainer {
     max-width: 95%;
 }
 
 .expNums {
-    background-image: url("../public/exp.png");
     background-repeat: no-repeat;
     background-position: top;
     padding-top: 100px !important;
+}
+
+@media screen and (min-width: 768px) {
+    .expNums {
+        background-image: url("../public/exp.png");
+    }
 }
 
 .expLore {

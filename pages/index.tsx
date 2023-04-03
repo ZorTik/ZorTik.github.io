@@ -12,7 +12,6 @@ const Home: NextPage = () => {
               <Welcome />
               <Experience />
               <Works />
-
           </FadeIn>
       </BaseLayout>
   )

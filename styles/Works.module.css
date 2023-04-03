@@ -38,8 +38,14 @@
 }
 
 .searchContent h1 {
-    font-size: 48px;
+    font-size: 64px;
     color: #bbddc9;
+}
+
+@media screen and (max-width: 1199px) {
+    .searchContent h1 {
+        font-size: 48px !important;
+    }
 }
 
 .searchContent input {

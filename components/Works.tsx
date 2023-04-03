@@ -26,6 +26,17 @@ const TagsComponent = styled.div`
   > * {
     margin-right: 8px;
   }
+  
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center !important;
+    >* {
+      margin-top: 8px !important;
+      margin-bottom: 0 !important;
+      align-self: center !important;
+      width: 100% !important;
+    }
+  }
 `;
 const SearchPaginationComponent = styled(Pagination)`
   margin-top: 20px;

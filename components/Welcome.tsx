@@ -18,7 +18,7 @@ const Welcome = () => {
             <Col xl={4} className={`${styles.loreContainer} d-flex flex-column`}>
                 <Row className={styles.loreBlock}>
                     <h1>I&apos;m not just a backend dev!</h1>
-                    <p>Well, I&apos;m just a backend dev, but with experience in lot of other technologies and fields. I work as game servers staff and freelance developer. Some of the technologies I used to work with are listed below.</p>
+                    <p>Well, I&apos;m a backend dev, but with experience in lot of other fields. I work as game servers staff and freelance developer. Some of the technologies I used to work with are listed below.</p>
                 </Row>
                 <Row>
                     <span>

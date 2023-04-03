@@ -1,9 +1,18 @@
 .welcome {
-    background-image: url("../public/cake.png");
     background-repeat: no-repeat;
     background-position: bottom;
     min-height: 622px !important;
     border-bottom: 1px solid #238177;
+}
+
+@media screen and (min-width: 1200px) {
+    .welcome {
+        background-image: url("../public/cake.png");
+    }
+}
+
+.titleContainer {
+
 }
 
 .titleContainer h1 {
@@ -12,6 +21,12 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 15px !important;
+}
+
+@media screen and (max-width: 500px) {
+    .titleContainer h1 {
+        font-size: 96px !important;
+    }
 }
 
 .titleContainer h2 {
@@ -53,6 +68,12 @@
 
 .loreBlock {
     margin-top: 40px;
+}
+
+@media screen and (min-width: 1200px) {
+    .loreBlock {
+        background: radial-gradient(circle, rgba(43,50,61,1) 0%, rgba(54,63,73,1) 80%);
+    }
 }
 
 .loreBlock h1 {

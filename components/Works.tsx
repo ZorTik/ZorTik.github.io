@@ -6,6 +6,7 @@ import {Circles} from "react-loader-spinner";
 import _, {Dictionary} from "underscore";
 import Image from "next/image";
 import Link from "next/link";
+import Center from "./Center";
 
 type Work = {
     img: string,
@@ -144,7 +145,9 @@ const Search = () => {
                 </TagsComponent>
             </Col>
         </Row>
-        {fetching ? <Circles height="80" width="80" color="gray" ariaLabel="loading" /> : null}
+        {fetching ? <Row className="d-flex flex-row justify-content-center mb-5">
+            <Circles wrapperStyle={{maxWidth: "fit-content"}} height="80" width="80" color="gray" ariaLabel="loading" />
+        </Row> : null}
         <SearchContentComponent>
             {works.filter((_, i) => i >= page * 2 && i < (page + 1) * 2).map((page, _i1) => <Col key={_i1}>
                 {page.map((work, _i2) => <WorkCard key={_i2} work={work} />)}

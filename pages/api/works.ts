@@ -6,10 +6,7 @@ function loadWorks() {
     const worksPath = process.cwd() + "/public/works";
     return fs.readdirSync(worksPath)
         .map(file => {
-            const meta = fs.readFileSync(`${worksPath}/${file}/meta.xml`, "utf-8");
-
-            const obj = xml.toJson(meta, {object: true,}) as any;
-
+            const obj = xml.toJson(fs.readFileSync(`${worksPath}/${file}/meta.xml`, "utf-8"), {object: true}) as any;
             const title = obj.work.title;
             const img = `/works/${file}/` + obj.work.image;
             const description = obj.work.description;

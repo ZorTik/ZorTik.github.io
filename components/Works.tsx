@@ -6,7 +6,6 @@ import {Circles} from "react-loader-spinner";
 import _, {Dictionary} from "underscore";
 import Image from "next/image";
 import Link from "next/link";
-import Center from "./Center";
 
 type Work = {
     img: string,
@@ -98,6 +97,7 @@ const Search = () => {
 
         if (fetching) return;
         setFetching(true);
+        setWorks([]);
 
         fetch("/api/works", {
             method: "POST",

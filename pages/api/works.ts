@@ -2,20 +2,11 @@ import {NextApiRequest, NextApiResponse} from "next";
 import * as fs from "fs";
 import xml from "xml2json";
 
-const localStore = [
-    {
-        title: "Containr GUI",
-        img: "/works/work1/image.png",
-        description: "An ultimate Minecraft GUI framework. This project is part of my public freelance repositories I use in my commissions.",
-        categories: ["Java", "Minecraft", "Library"],
-    },
-]
-
 function loadWorks() {
-    //return localStore;
-    return fs.readdirSync("public/works")
+    const worksPath = process.cwd() + "/public/works";
+    return fs.readdirSync(worksPath)
         .map(file => {
-            const meta = fs.readFileSync(`public/works/${file}/meta.xml`, "utf-8");
+            const meta = fs.readFileSync(`${worksPath}/${file}/meta.xml`, "utf-8");
 
             const obj = xml.toJson(meta, {object: true,}) as any;
 

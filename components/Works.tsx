@@ -18,8 +18,13 @@ type SearchAttributes = { query: string, filters: string[], }
 const SearchContentComponent = styled(Row)`
   transform: translateY(-30px);
   
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1400px) {
     flex-direction: column;
+  }
+  @media screen and (max-width: 1200px) {
+    img {
+      display: none !important;
+    }
   }
 `;
 const TagsComponent = styled.div`
@@ -156,8 +161,13 @@ type WorkCardProps = {
     work: Work
 }
 const WorkCardImageCol = styled(Col)`
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  
   img {
-    width: 150px !important;
+    max-width: 200px !important;
+    width: 200px !important;
     height: 200px !important;
     border-radius: 8px;
   }
@@ -185,8 +195,8 @@ const WorkCardBadge = styled(Badge)`
 const WorkCard = (props: WorkCardProps) => {
     const {work} = props;
     return <Row>
-        <WorkCardImageCol xl={5}>
-            <Image src={work.img} width={150} height={200} alt={work.title} />
+        <WorkCardImageCol xl={6}>
+            <Image src={work.img} width={200} height={200} alt={work.title} />
         </WorkCardImageCol>
         <WorkDetailsCol>
             <Link href={work.href || "#"}><h1 role="button">{work.title}</h1></Link>

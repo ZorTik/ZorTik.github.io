@@ -2,6 +2,7 @@ import styles from "../styles/Works.module.css";
 import {Badge, Button, Col, Pagination, Row} from "react-bootstrap";
 import styled, {css} from "styled-components";
 import {ChangeEventHandler, useEffect, useState} from "react";
+import {Circles} from "react-loader-spinner";
 import _, {Dictionary} from "underscore";
 import Image from "next/image";
 import Link from "next/link";
@@ -143,6 +144,7 @@ const Search = () => {
                 </TagsComponent>
             </Col>
         </Row>
+        {fetching ? <Circles height="80" width="80" color="gray" ariaLabel="loading" /> : null}
         <SearchContentComponent>
             {works.filter((_, i) => i >= page * 2 && i < (page + 1) * 2).map((page, _i1) => <Col key={_i1}>
                 {page.map((work, _i2) => <WorkCard key={_i2} work={work} />)}

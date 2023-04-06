@@ -16,7 +16,7 @@ const Header = () => {
             <Col xxl={3} className={styles.header}>
                 <Navbar expand="lg" sticky="top">
                     <Nav className="me-auto">
-                        <Navbar.Brand href="#home">
+                        <Navbar.Brand href="/">
                             <Image id="logo" src="/logo.png" width={32} height={32} alt="ZorTik Logo" />
                         </Navbar.Brand>
                         <Nav.Link href="#about">About Me</Nav.Link>

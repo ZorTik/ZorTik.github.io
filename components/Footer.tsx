@@ -38,7 +38,7 @@ const Footer = () => {
             <FooterComponent>
                 <Row>
                     <FooterQuoteColComponent xl={10}>
-                        <Row><p>Hello, and welcome to my portfolio website! I&pos;m a dedicated programmer with a passion for solving complex problems through elegant and efficient code. With a keen eye for detail, I strive to create high-quality, user-friendly solutions that meet the unique needs of each project. As a lifelong learner, I'm always seeking out new challenges and opportunities to expand my skills and knowledge. Whether you're looking for a full-stack developer, a front-end specialist, or anything in between, I'm confident that I have the skills and experience to help bring your vision to life. Thank you for taking the time to visit my site, and I look forward to working with you!</p></Row>
+                        <Row><p>Hello, and welcome to my portfolio website! I&pos;m a dedicated programmer with a passion for solving complex problems through elegant and efficient code. With a keen eye for detail, I strive to create high-quality, user-friendly solutions that meet the unique needs of each project. As a lifelong learner, I&pos;m always seeking out new challenges and opportunities to expand my skills and knowledge. Whether you&pos;re looking for a full-stack developer, a front-end specialist, or anything in between, I&pos;m confident that I have the skills and experience to help bring your vision to life. Thank you for taking the time to visit my site, and I look forward to working with you!</p></Row>
                         <br />
                         <Row><p>Designed by <strong>Gennario</strong> | Developed by <strong>ZorTik</strong></p></Row>
                     </FooterQuoteColComponent>

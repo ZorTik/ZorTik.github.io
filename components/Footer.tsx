@@ -32,6 +32,7 @@ const FooterLinksColComponent = styled(Col)`
   @media screen and (min-width: 1200px) {
     padding-left: 50px;
   }
+  
 `;
 
 const Footer = () => {

@@ -11,7 +11,8 @@ function loadWorks() {
             const img = `/works/${file}/` + obj.work.image;
             const description = obj.work.description;
             const categories = obj.work.categories.category;
-            return {title, img, description, categories};
+            const url = obj.work.url;
+            return {title, img, description, categories, href: url || undefined};
         });
 }
 

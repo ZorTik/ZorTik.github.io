@@ -44,7 +44,7 @@ const Footer = () => {
                         <br />
                         <Row><p>Designed by <strong>Gennario</strong> | Developed by <strong>ZorTik</strong></p></Row>
                     </FooterQuoteColComponent>
-                    <FooterLinksColComponent id="contacts">
+                    <FooterLinksColComponent>
                         <Link href={"https://github.com/ZorTik"}>GitHub</Link>
                         <Link href={"/"}>Discord</Link>
                         <Link href={"https://www.instagram.com/zortik_official/"}>Instagram</Link>

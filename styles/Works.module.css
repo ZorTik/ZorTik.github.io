@@ -7,11 +7,15 @@
     background-color: #3d4a57;
     border-radius: 20px;
     transform: translateY(-50%);
+    padding: 0 !important;
 }
 
 @media screen and (min-width: 1200px) {
     .search {
         min-height: 232px !important;
+    }
+    .searchContent {
+        padding: 0 !important;
     }
 }
 
@@ -31,10 +35,6 @@
     .search h1 {
         text-align: center;
     }
-}
-
-.searchContent {
-    padding-top: 20px;
 }
 
 .searchContent h1 {

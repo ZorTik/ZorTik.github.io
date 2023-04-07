@@ -170,6 +170,7 @@ const Search = () => {
             {works.filter((_, i) => i % 2 == 0).map((_, i) => <SearchPaginationItem key={i / 2} active={i === page} />)}
             <SearchPaginationNext />
         </SearchPaginationComponent>
+        <Row><ButtonComponent target="_blank" href="https://github.com/ZorTik">Zobrazit více</ButtonComponent></Row>
     </Col>
 }
 
@@ -223,7 +224,9 @@ const WorkCard = (props: WorkCardProps) => {
 }
 
 const Works = () => {
-    return <Row className={styles.works} id="work"><Search /></Row>
+    return <>
+        <Row className={styles.works} id="work"><Search /></Row>
+    </>
 }
 
 export default Works;

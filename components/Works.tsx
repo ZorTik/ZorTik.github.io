@@ -102,6 +102,13 @@ const Search = () => {
         setAttributes({...attributes, query: (e.target as any).value || ""});
     }
 
+    const handlePageChange = (change: number) => {
+        if (page + change < 0 || page + change + 1 >= works.length)
+            return;
+
+        setPage(page + change);
+    }
+
     useEffect(() => {
         const query = attributes.query;
         const filters = attributes.filters;
@@ -121,7 +128,7 @@ const Search = () => {
             })
         }).then(res => res.json()).then(data => {
             const works: Work[] & {page: number} = data.map((w: any, i: number) => {
-                return {...w, page: Number(i / 2)};
+                return {...w, page: Number(Math.floor(i / 2))};
             });
             const worksByPage: Dictionary<Work[]> = _.groupBy(works, "page");
             setWorks(_.values(worksByPage));
@@ -161,21 +168,22 @@ const Search = () => {
         </Row> : null}
         <SearchContentComponent>
             {works.filter((_, i) => i >= page * 2 && i < (page + 1) * 2).map((page, _i1) => <Col key={_i1}>
-                {page.map((work, _i2) => <WorkCard key={_i2} work={work} />)}
+                {page.map((work, _i2) => <WorkCard key={_i2} work={work} margin={_i2 > 0} />)}
             </Col>)}
             {works.length < 2 ? <Col /> : null}
         </SearchContentComponent>
         <SearchPaginationComponent>
-            <SearchPaginationPrev />
+            <SearchPaginationPrev onClick={() => handlePageChange(-1)} />
             {works.filter((_, i) => i % 2 == 0).map((_, i) => <SearchPaginationItem key={i / 2} active={i === page} />)}
-            <SearchPaginationNext />
+            <SearchPaginationNext onClick={() => handlePageChange(1)} />
         </SearchPaginationComponent>
-        <Row><ButtonComponent target="_blank" href="https://github.com/ZorTik">Zobrazit více</ButtonComponent></Row>
+        <Row><ButtonComponent target="_blank" href="https://github.com/ZorTik">Show more</ButtonComponent></Row>
     </Col>
 }
 
 type WorkCardProps = {
-    work: Work
+    work: Work,
+    margin?: boolean
 }
 const WorkCardImageCol = styled(Col)`
   display: flex !important;
@@ -211,7 +219,9 @@ const WorkCardBadge = styled(Badge)`
 `;
 const WorkCard = (props: WorkCardProps) => {
     const {work} = props;
-    return <Row>
+    return <Row style={{
+        marginTop: props.margin ? "40px" : "0px",
+    }}>
         <WorkCardImageCol xl={6}>
             <Image src={work.img} width={200} height={200} alt={work.title} />
         </WorkCardImageCol>

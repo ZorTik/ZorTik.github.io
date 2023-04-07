@@ -25,7 +25,7 @@ const SearchContentComponent = styled(Row)`
   }
   @media screen and (max-width: 1200px) {
     img {
-      display: none !important;
+      //display: none !important;
     }
   }
 `;

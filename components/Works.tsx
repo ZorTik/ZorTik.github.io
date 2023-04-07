@@ -97,16 +97,17 @@ const Search = () => {
         filters: []
     });
     const [categories, setCategories] = useState<string[]>([]);
-
     const handleSearchValueChange: ChangeEventHandler = (e) => {
         setAttributes({...attributes, query: (e.target as any).value || ""});
     }
-
     const handlePageChange = (change: number) => {
         if (page + change < 0 || page + change + 1 >= works.length)
             return;
 
         setPage(page + change);
+    }
+    const currentPageCols = () => {
+        return works.filter((_, i) => i >= page * 2 && i < (page + 1) * 2);
     }
 
     useEffect(() => {
@@ -167,10 +168,10 @@ const Search = () => {
             <Circles wrapperStyle={{maxWidth: "fit-content"}} height="80" width="80" color="gray" ariaLabel="loading" />
         </Row> : null}
         <SearchContentComponent>
-            {works.filter((_, i) => i >= page * 2 && i < (page + 1) * 2).map((page, _i1) => <Col key={_i1}>
+            {currentPageCols().map((page, _i1) => <Col key={_i1}>
                 {page.map((work, _i2) => <WorkCard key={_i2} work={work} margin={_i2 > 0} />)}
             </Col>)}
-            {works.length < 2 ? <Col /> : null}
+            {currentPageCols().length < 2 ? <Col /> : null}
         </SearchContentComponent>
         <SearchPaginationComponent>
             <SearchPaginationPrev onClick={() => handlePageChange(-1)} />

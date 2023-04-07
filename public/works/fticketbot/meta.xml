@@ -1,0 +1,10 @@
+<work>
+    <title>Ticket Bot</title>
+    <image>image.png</image>
+    <description>DiscordTicketBot is one of my Discord bots I made for my servers.</description>
+    <url>https://github.com/ZorTik/DiscordTicketBot</url>
+    <categories>
+        <category>JavaScript/TypeScript</category>
+        <category>Library</category>
+    </categories>
+</work>

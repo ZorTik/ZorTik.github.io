@@ -222,12 +222,13 @@ const WorkCard = (props: WorkCardProps) => {
     const {work} = props;
     return <Row style={{
         marginTop: props.margin ? "40px" : "0px",
+        minHeight: "253px"
     }}>
         <WorkCardImageCol xl={6}>
             <Image src={work.img} width={200} height={200} alt={work.title} />
         </WorkCardImageCol>
         <WorkDetailsCol>
-            <Link href={work.href || "#"}><h1 role="button">{work.title}</h1></Link>
+            <Link href={work.href || "#"} target={work.href ? "_blank" : "_self"}><h1 role="button">{work.title}</h1></Link>
             {work.categories.map((c, i) => <WorkCardBadge key={i}>{c}</WorkCardBadge>)}
             <p>{work.description}</p>
         </WorkDetailsCol>

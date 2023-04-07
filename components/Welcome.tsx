@@ -2,6 +2,7 @@ import {Button, Col, Row} from "react-bootstrap";
 
 import styles from "../styles/Welcome.module.css";
 import FadeIn from "react-fade-in";
+import {ButtonComponent} from "./content/Button";
 
 const TechIcon = (props: { className: string }) => {
     return (
@@ -34,7 +35,7 @@ const Welcome = () => {
                         <TechIcon className="devicon-redis-plain colored" />
                     </span>
                 </Row>
-                <Button href="#work">Scroll Down ↓</Button>
+                <ButtonComponent href="#work">Scroll Down ↓</ButtonComponent>
             </Col>
         </Row>
     )

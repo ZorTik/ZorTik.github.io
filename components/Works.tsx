@@ -6,6 +6,7 @@ import {Circles} from "react-loader-spinner";
 import _, {Dictionary} from "underscore";
 import Image from "next/image";
 import Link from "next/link";
+import {ButtonComponent, buttonStyle} from "./content/Button";
 
 type Work = {
     img: string,
@@ -70,8 +71,18 @@ const SearchPaginationItem = styled(Pagination.Item)`
   }
 `;
 const searchPagArrowStyle = css`
-  :active, :focus {
-    background-color: transparent !important;
+  padding: 0 20px;
+  * {
+    box-shadow: none !important;
+    border: none !important;
+    color: var(--color-shade) !important;
+  }
+  > * {
+    background: none !important;
+    transform: translateY(-15%);
+  }
+  .page-link:hover, .page-link:focus, .page-link:active {
+    background-color: var(--bs-gray-600) !important;
   }
 `;
 const SearchPaginationNext = styled(Pagination.Next)`${searchPagArrowStyle}`;
@@ -133,14 +144,14 @@ const Search = () => {
                 <input onChange={handleSearchValueChange} type="text" placeholder="Search..." />
                 <TagsComponent>
                     {categories ? categories.map((category, _i) => {
-                        return <Button key={_i} onClick={() => {
+                        return <ButtonComponent key={_i} onClick={() => {
                             setAttributes({
                                 ...attributes,
                                 filters: attributes.filters.includes(category)
                                     ? attributes.filters.filter(f => f !== category)
                                     : [...attributes.filters, category]
                             });
-                        }} active={attributes.filters.includes(category)}>{category}</Button>
+                        }} active={attributes.filters.includes(category)}>{category}</ButtonComponent>
                     }) : null}
                 </TagsComponent>
             </Col>

@@ -6,6 +6,12 @@ const FooterComponent = styled(Container)`
   color: #6f7378;
   padding: 2rem 0;
   margin-top: 20px;
+  > * > a[href] {
+    color: var(--color-primary) !important;
+    :hover {
+      color: var(--color-primary-dark) !important;
+    }
+  }
 `;
 const FooterQuoteColComponent = styled(Col)`
   color: #6f7378;
@@ -20,12 +26,8 @@ const FooterLinksColComponent = styled(Col)`
   flex-direction: column;
   justify-content: center;
 
-  a {
-    color: #f3f2f5;
-  }
-  a:hover {
-    color: #dddde0;
-  }
+  a {color: #f3f2f5;}
+  a:hover {color: #dddde0;}
 
   @media screen and (min-width: 1200px) {
     padding-left: 50px;

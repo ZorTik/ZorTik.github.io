@@ -25,7 +25,7 @@ const SearchContentComponent = styled(Row)`
   }
   @media screen and (max-width: 1200px) {
     img {
-      display: none !important;
+      //display: none !important;
     }
   }
 `;
@@ -199,6 +199,20 @@ const WorkCardImageCol = styled(Col)`
     width: 200px !important;
     height: 200px !important;
     border-radius: 8px;
+    
+    @media screen and (max-width: 768px) {
+      max-width: 150px !important;
+      width: 150px !important;
+      height: 150px !important;
+    }
+    @media screen and (max-width: 576px) {
+      max-width: 100px !important;
+      width: 100px !important;
+      height: 100px !important;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    display: none !important;
   }
 `;
 const WorkDetailsCol = styled(Col)`
@@ -216,6 +230,9 @@ const WorkDetailsCol = styled(Col)`
     color: var(--color-secondary);
     margin-top: 18px;
   }
+  @media screen and (max-width: 375px) {
+    border-left: none !important;
+  }
 `;
 const WorkCardBadge = styled(Badge)`
   background-color: var(--color-shade) !important;
@@ -227,10 +244,10 @@ const WorkCard = (props: WorkCardProps) => {
         marginTop: props.margin ? "40px" : "0px",
         minHeight: "253px"
     }}>
-        <WorkCardImageCol xl={6}>
+        <WorkCardImageCol xs={6}>
             <Image src={work.img} width={200} height={200} alt={work.title} />
         </WorkCardImageCol>
-        <WorkDetailsCol>
+        <WorkDetailsCol xs={6}>
             <Link href={work.href || "#"} target={work.href ? "_blank" : "_self"}><h1 role="button">{work.title}</h1></Link>
             {work.categories.map((c, i) => <WorkCardBadge key={i}>{c}</WorkCardBadge>)}
             <p>{work.description}</p>

@@ -29,6 +29,11 @@ const SearchContentComponent = styled(Row)`
     }
   }
 `;
+const SearchContentCol = styled(Col)`
+  @media screen and (max-width: 1399px) {
+    margin-top: 40px !important;
+  }
+`;
 const TagsComponent = styled.div`
   display: flex;
   flex-direction: row;
@@ -171,9 +176,9 @@ const Search = () => {
             <Circles wrapperStyle={{maxWidth: "fit-content"}} height="80" width="80" color="gray" ariaLabel="loading" />
         </Row> : null}
         <SearchContentComponent>
-            {currentPageCols().map((page, _i1) => <Col key={_i1}>
+            {currentPageCols().map((page, _i1) => <SearchContentCol key={_i1}>
                 {page.map((work, _i2) => <WorkCard key={_i2} work={work} margin={_i2 > 0} />)}
-            </Col>)}
+            </SearchContentCol>)}
             {currentPageCols().length < 2 ? <Col /> : null}
         </SearchContentComponent>
         <SearchPaginationComponent>
@@ -199,20 +204,6 @@ const WorkCardImageCol = styled(Col)`
     width: 200px !important;
     height: 200px !important;
     border-radius: 8px;
-    
-    @media screen and (max-width: 768px) {
-      max-width: 150px !important;
-      width: 150px !important;
-      height: 150px !important;
-    }
-    @media screen and (max-width: 576px) {
-      max-width: 100px !important;
-      width: 100px !important;
-      height: 100px !important;
-    }
-  }
-  @media screen and (max-width: 375px) {
-    display: none !important;
   }
 `;
 const WorkDetailsCol = styled(Col)`
@@ -230,8 +221,9 @@ const WorkDetailsCol = styled(Col)`
     color: var(--color-secondary);
     margin-top: 18px;
   }
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 767px) {
     border-left: none !important;
+    margin: 20px 0 30px 0;
   }
 `;
 const WorkCardBadge = styled(Badge)`
@@ -244,10 +236,10 @@ const WorkCard = (props: WorkCardProps) => {
         marginTop: props.margin ? "40px" : "0px",
         minHeight: "253px"
     }}>
-        <WorkCardImageCol xs={6}>
+        <WorkCardImageCol md={6}>
             <Image src={work.img} width={200} height={200} alt={work.title} />
         </WorkCardImageCol>
-        <WorkDetailsCol xs={6}>
+        <WorkDetailsCol md={6}>
             <Link href={work.href || "#"} target={work.href ? "_blank" : "_self"}><h1 role="button">{work.title}</h1></Link>
             {work.categories.map((c, i) => <WorkCardBadge key={i}>{c}</WorkCardBadge>)}
             <p>{work.description}</p>

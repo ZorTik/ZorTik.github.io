@@ -32,7 +32,10 @@ const SearchContentComponent = styled(Row)`
 const TagsComponent = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   margin-top: 20px;
+  word-wrap: break-word;
+  padding-bottom: 45px;
   
   > * {
     margin-right: 8px;

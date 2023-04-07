@@ -3,12 +3,14 @@ import {Button, Col, Row} from "react-bootstrap";
 import styles from "../styles/Welcome.module.css";
 import FadeIn from "react-fade-in";
 import {ButtonComponent} from "./content/Button";
+import styled from "styled-components";
 
 const TechIcon = (props: { className: string }) => {
-    return (
-        <i className={props.className} style={{fontSize: "3rem", marginRight: "5px"}}></i>
-    )
+    return <i className={props.className} style={{fontSize: "3rem", marginRight: "5px"}}></i>
 }
+const ScrollButton = styled(ButtonComponent)`
+  margin-bottom: 45px !important;
+`;
 
 const Welcome = () => {
     return (
@@ -35,7 +37,7 @@ const Welcome = () => {
                         <TechIcon className="devicon-redis-plain colored" />
                     </span>
                 </Row>
-                <ButtonComponent href="#work">Scroll Down ↓</ButtonComponent>
+                <ScrollButton href="#work">Scroll Down ↓</ScrollButton>
             </Col>
         </Row>
     )

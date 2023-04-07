@@ -153,7 +153,6 @@ const Search = () => {
     }, []);
 
     return <Col>
-
         <Row className={styles.search}>
             <Col className={styles.searchImg}></Col>
             <Col xl={10} className={styles.searchContent}>

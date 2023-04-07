@@ -16,8 +16,6 @@ const SocialButton = styled(Button)`
   :hover, :focus, :active {
     background-color: ${props => props.bgColor ?? "#3b4754"} !important
   }
-;
-}
 `;
 
 export default function Socials() {

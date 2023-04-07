@@ -8,8 +8,7 @@ const buttonStyle = css`
   border-radius: 15px;
   padding: 1px 20px;
   align-self: end;
-  margin-top: auto;
-  margin-bottom: 10px;
+  margin: 5px;
   
   :hover, .active {
     background-color: #686c72 !important;

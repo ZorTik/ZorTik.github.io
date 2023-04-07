@@ -6,7 +6,7 @@ import {Circles} from "react-loader-spinner";
 import _, {Dictionary} from "underscore";
 import Image from "next/image";
 import Link from "next/link";
-import {ButtonComponent, buttonStyle} from "./content/Button";
+import {ButtonComponent} from "./content/Button";
 
 type Work = {
     img: string,

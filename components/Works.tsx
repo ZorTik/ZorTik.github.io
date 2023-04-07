@@ -37,16 +37,14 @@ const SearchContentCol = styled(Col)`
 const TagsComponent = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   margin-top: 20px;
-  word-wrap: break-word;
   padding-bottom: 45px;
   
   > * {
     margin-right: 8px;
   }
   
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     flex-direction: column;
     justify-content: center !important;
     >* {
@@ -55,6 +53,9 @@ const TagsComponent = styled.div`
       align-self: center !important;
       width: 100% !important;
     }
+  }
+  @media screen and (min-width: 768px) {
+    flex-wrap: wrap;
   }
 `;
 const SearchPaginationComponent = styled(Pagination)`

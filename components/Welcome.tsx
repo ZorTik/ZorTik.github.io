@@ -9,6 +9,7 @@ const TechIcon = (props: { className: string }) => {
     return <i className={props.className} style={{fontSize: "3rem", marginRight: "5px"}}></i>
 }
 const ScrollButton = styled(ButtonComponent)`
+  margin-top: auto !important;
   margin-bottom: 45px !important;
 `;
 

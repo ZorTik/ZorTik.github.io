@@ -37,7 +37,7 @@ const SearchContentCol = styled(Col)`
 const TagsComponent = styled.div`
   display: flex;
   flex-direction: row;
-  padding-bottom: 45px;
+  padding: 20px 0;
   
   > * {
     margin-right: 8px;

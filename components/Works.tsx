@@ -37,7 +37,6 @@ const SearchContentCol = styled(Col)`
 const TagsComponent = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
   padding-bottom: 45px;
   
   > * {
@@ -57,6 +56,9 @@ const TagsComponent = styled.div`
   @media screen and (min-width: 768px) {
     flex-wrap: wrap;
   }
+`;
+const TagsButton = styled(ButtonComponent)`
+    margin-right: 5px;
 `;
 const SearchPaginationComponent = styled(Pagination)`
   margin-top: 20px;
@@ -161,14 +163,14 @@ const Search = () => {
                 <input onChange={handleSearchValueChange} type="text" placeholder="Search..." />
                 <TagsComponent>
                     {categories ? categories.map((category, _i) => {
-                        return <ButtonComponent key={_i} onClick={() => {
+                        return <TagsButton key={_i} onClick={() => {
                             setAttributes({
                                 ...attributes,
                                 filters: attributes.filters.includes(category)
                                     ? attributes.filters.filter(f => f !== category)
                                     : [...attributes.filters, category]
                             });
-                        }} active={attributes.filters.includes(category)}>{category}</ButtonComponent>
+                        }} active={attributes.filters.includes(category)}>{category}</TagsButton>
                     }) : null}
                 </TagsComponent>
             </Col>

@@ -5,8 +5,11 @@ import FadeIn from "react-fade-in";
 import {ButtonComponent} from "./content/Button";
 import styled from "styled-components";
 
+const TechIconComponent = styled.i`
+  color: var(--color-primary) !important;
+`;
 const TechIcon = (props: { className: string }) => {
-    return <i className={props.className} style={{fontSize: "3rem", marginRight: "5px"}}></i>
+    return <TechIconComponent className={props.className} style={{fontSize: "3rem", marginRight: "5px"}}></TechIconComponent>
 }
 const ScrollButton = styled(ButtonComponent)`
   margin-top: auto !important;

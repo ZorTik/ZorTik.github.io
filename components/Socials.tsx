@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {Button, Col, Row} from "react-bootstrap";
 
 const SocialsComponent = styled(Row)`
-  margin: 40px 0 20px 0;
+  margin: 80px 0;
   > .col {
     display: flex;
     flex-direction: column;

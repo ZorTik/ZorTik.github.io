@@ -8,7 +8,7 @@ import Socials from "../components/Socials";
 
 const Home: NextPage = () => {
   return (
-      <BaseLayout>
+      <BaseLayout padding={false}>
           <FadeIn>
               <Welcome />
               <Experience />

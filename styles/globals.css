@@ -3,6 +3,7 @@
   --color-primary-dark: #4a9c7f;
   --color-secondary: #bebcc3;
   --color-shade: #5d6a75;
+  --color-shade-2: #6f7378;
 }
 
 html,
@@ -19,28 +20,14 @@ a {
   text-decoration: none !important;
 }
 
-/*a[role="button"], a[role="button"]:hover, a[role="button"].active,
-button[type="button"], button[type="button"]:hover, button[type="button"].active {
-  background-color: unset;
-  border: 1px solid #686c72 !important;
-  color: #686c72;
-  border-radius: 15px;
-  padding: 1px 20px;
-  align-self: end;
-  margin-top: auto;
-  margin-bottom: 45px;
-}
-
-a[role="button"]:hover, a[role="button"].active,
-button[type="button"]:hover, button[type="button"].active {
-  background-color: #686c72 !important;
-  color: #cdcccc;
-}*/
-
 a[class="carousel-control-prev"], a[class="carousel-control-next"],
 a[class="carousel-control-prev"]:hover, a[class="carousel-control-next"]:hover {
   border: unset !important;
   background-color: unset !important;
+}
+
+h1, h2, p {
+  color: var(--color-secondary);
 }
 
 input {

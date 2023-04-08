@@ -1,5 +1,5 @@
 import styled, {css} from "styled-components";
-import {Button} from "react-bootstrap";
+import {Button, Dropdown} from "react-bootstrap";
 
 const buttonStyle = css`
   background-color: unset !important;
@@ -16,8 +16,10 @@ const buttonStyle = css`
   }
 `;
 const ButtonComponent = styled(Button)`${buttonStyle}`;
+const DropdownToggleComponent = styled(Dropdown.Toggle)`${buttonStyle}`;
 
 export {
     buttonStyle,
-    ButtonComponent
+    ButtonComponent,
+    DropdownToggleComponent
 }

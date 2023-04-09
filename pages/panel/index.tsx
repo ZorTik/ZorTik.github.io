@@ -1,25 +1,33 @@
 import PanelLayout from "../../components/panel/PanelLayout";
+import {Col, Tab} from "react-bootstrap";
+import {useUserPermissions} from "../../hooks/auth0";
+import Loader from "../../components/content/Loader";
 import {TabsComponent} from "../../components/content/Tabs";
-import {Tab} from "react-bootstrap";
-import {useUser} from "@auth0/nextjs-auth0/client";
+import {FormComponent} from "../../components/content/Form";
 
 export default function Panel() {
-    const {user} = useUser();
+    const {permissions, fetching} = useUserPermissions();
     return (
         <PanelLayout>
-            <TabsComponent
-                defaultActiveKey="tickets"
-                id="fill-tab-example"
-                className="mb-3"
-                transition={false}
-            >
-                <Tab eventKey="tickets" title="Tickets">
-                    <p>Under construction...</p>
-                </Tab>
-                <Tab eventKey="blog" title="Blog">
+            {!fetching ? (
+                <Col>
+                    <TabsComponent
+                        defaultActiveKey="tickets"
+                        id="fill-tab-example"
+                        className="mb-3"
+                        transition={false}
+                    >
+                        <Tab eventKey="tickets" title="Tickets">
+                            <p>Under construction...</p>
+                        </Tab>
+                        {permissions?.includes("write:blogs") ? (
+                            <Tab title="Blog" eventKey="blog">
 
-                </Tab>
-            </TabsComponent>
+                            </Tab>
+                        ) : null}
+                    </TabsComponent>
+                </Col>
+            ) : <Loader />}
         </PanelLayout>
     )
 }

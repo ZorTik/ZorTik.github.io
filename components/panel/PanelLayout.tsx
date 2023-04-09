@@ -8,9 +8,7 @@ export default function PanelLayout(props: PropsWithChildren) {
         <BaseLayout>
             <AuthRequired>
                 <Row>
-                    <Col>
-                        {props.children}
-                    </Col>
+                    {props.children}
                 </Row>
             </AuthRequired>
         </BaseLayout>

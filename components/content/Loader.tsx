@@ -4,10 +4,14 @@ import styled from "styled-components";
 
 const LoaderRow = styled(Row)`
   padding: 20px 0;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
 `;
-
-export default function Loader() {
-    return <LoaderRow className="d-flex flex-row justify-content-center align-items-center">
+const Loader = () => {
+    return <LoaderRow>
         <Circles wrapperStyle={{maxWidth: "fit-content"}} height="80" width="80" color="gray" ariaLabel="loading" />
-    </LoaderRow>;
+    </LoaderRow>
 }
+export default Loader;

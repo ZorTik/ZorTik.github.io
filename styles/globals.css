@@ -26,7 +26,7 @@ a[class="carousel-control-prev"]:hover, a[class="carousel-control-next"]:hover {
   background-color: unset !important;
 }
 
-h1, h2, h3, p {
+h1, h2, h3, h4, h5, p {
   color: var(--color-secondary);
 }
 

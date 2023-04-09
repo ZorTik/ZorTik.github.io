@@ -56,7 +56,7 @@ export default function Header() {
             <HrWrapperComponent><Hr /></HrWrapperComponent>
             <Col xxl={1}>
                 {user ? <PanelDropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">{user.name}</Dropdown.Toggle>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">{user.nickname}</Dropdown.Toggle>
                     <Dropdown.Menu>
                         <Dropdown.Item href="/panel">Panel</Dropdown.Item>
                         <Dropdown.Item href="/api/auth/logout">Logout</Dropdown.Item>

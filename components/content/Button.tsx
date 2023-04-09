@@ -16,10 +16,14 @@ const buttonStyle = css`
   }
 `;
 const ButtonComponent = styled(Button)`${buttonStyle}`;
-const DropdownToggleComponent = styled(Dropdown.Toggle)`${buttonStyle}`;
+const DropdownComponent = styled(Dropdown)`
+  button {
+    ${buttonStyle}
+  }
+`;
 
 export {
     buttonStyle,
     ButtonComponent,
-    DropdownToggleComponent
+    DropdownComponent
 }

@@ -4,7 +4,7 @@ import Image from "next/image";
 import styled, {css} from "styled-components";
 import {BsPrefixRefForwardingComponent} from "react-bootstrap/helpers";
 import {useRouter} from "next/router";
-import {ButtonComponent, DropdownToggleComponent} from "./content/Button";
+import {ButtonComponent, DropdownComponent} from "./content/Button";
 import {useUser} from "@auth0/nextjs-auth0/client";
 
 const HeaderLinks = styled(Col)`
@@ -25,7 +25,7 @@ const panelButtonStyle = css`
   transform: translateY(25%);
 `;
 const PanelButton = styled(ButtonComponent)`${panelButtonStyle}`;
-const PanelDropdownButton = styled(DropdownToggleComponent)`${panelButtonStyle}`;
+const PanelDropdown = styled(DropdownComponent)`${panelButtonStyle}`;
 const HeaderLink: BsPrefixRefForwardingComponent<"a", NavLinkProps> = (props) => {
     const router = useRouter();
     return <Nav.Link {...props} active={router.asPath.startsWith(props.href ?? "#")} />
@@ -55,13 +55,13 @@ export default function Header() {
             </HeaderLinks>
             <HrWrapperComponent><Hr /></HrWrapperComponent>
             <Col xxl={1}>
-                {user ? <Dropdown>
-                    <PanelDropdownButton variant="success" id="dropdown-basic">{user.name}</PanelDropdownButton>
+                {user ? <PanelDropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">{user.name}</Dropdown.Toggle>
                     <Dropdown.Menu>
                         <Dropdown.Item href="/panel">Panel</Dropdown.Item>
                         <Dropdown.Item href="/api/auth/logout">Logout</Dropdown.Item>
                     </Dropdown.Menu>
-                </Dropdown> : <PanelButton onClick={handlePanelClick}>Panel</PanelButton>}
+                </PanelDropdown> : <PanelButton onClick={handlePanelClick}>Panel</PanelButton>}
             </Col>
         </Row>
     )

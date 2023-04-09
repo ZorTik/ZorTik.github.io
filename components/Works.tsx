@@ -2,11 +2,11 @@ import styles from "../styles/Works.module.css";
 import {Badge, Button, Col, Pagination, Row} from "react-bootstrap";
 import styled, {css} from "styled-components";
 import {ChangeEventHandler, useEffect, useState} from "react";
-import {Circles} from "react-loader-spinner";
 import _, {Dictionary} from "underscore";
 import Image from "next/image";
 import Link from "next/link";
 import {ButtonComponent} from "./content/Button";
+import Loader from "./content/Loader";
 
 type Work = {
     img: string,
@@ -176,7 +176,7 @@ const Search = () => {
             </Col>
         </Row>
         {fetching ? <Row className="d-flex flex-row justify-content-center mb-5">
-            <Circles wrapperStyle={{maxWidth: "fit-content"}} height="80" width="80" color="gray" ariaLabel="loading" />
+            <Loader />
         </Row> : null}
         <SearchContentComponent>
             {currentPageCols().map((page, _i1) => <SearchContentCol key={_i1}>

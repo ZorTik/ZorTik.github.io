@@ -13,8 +13,6 @@ import {ButtonComponent} from "../../components/content/Button";
 import {useState} from "react";
 import Pane from "../../components/content/Pane";
 
-import QuillComponent from "../../components/content/QuillComponent";
-
 const TabContent = styled(Tab.Content)`
   @media screen and (min-width: 991px) {
     padding: 50px 80px !important;
@@ -54,7 +52,6 @@ const ArticlesTabContent = () => {
                     </FormComponent.Group>
                     <FormComponent.Group controlId="formContent">
                         <FormComponent.Label>Content</FormComponent.Label>
-                        <QuillComponent theme="snow" value={content} onChange={setContent} />
                     </FormComponent.Group>
                     <ButtonComponent type="submit">Publish</ButtonComponent>
                 </FormComponent>

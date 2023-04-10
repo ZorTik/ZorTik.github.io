@@ -3,7 +3,6 @@ import {Container} from "react-bootstrap";
 import Header from "./Header";
 import Footer from "./Footer";
 import styled from "styled-components";
-import {useUser} from "@auth0/nextjs-auth0/client";
 
 const BaseLayoutContainer = styled(Container)`
   padding: ${props => props.padding ? "30px 0" : "0"};
@@ -18,17 +17,12 @@ type BaseLayoutProps = PropsWithChildren & {
 }
 
 const BaseLayout = (props: BaseLayoutProps) => {
-    const {isLoading} = useUser();
     return <>
         <Container>
-            {!isLoading ? (
-                <>
-                    <Header />
-                    <BaseLayoutContainer padding={props.padding ?? true} fluid>
-                        {props.children}
-                    </BaseLayoutContainer>
-                </>
-            ) : null}
+            <Header />
+            <BaseLayoutContainer padding={props.padding ?? true} fluid>
+                {props.children}
+            </BaseLayoutContainer>
         </Container>
         <Footer />
     </>

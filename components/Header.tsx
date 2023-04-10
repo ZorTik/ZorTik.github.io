@@ -6,6 +6,7 @@ import {BsPrefixRefForwardingComponent} from "react-bootstrap/helpers";
 import {useRouter} from "next/router";
 import {ButtonComponent, DropdownComponent} from "./content/Button";
 import {useUser} from "@auth0/nextjs-auth0/client";
+import Loader from "./content/Loader";
 
 const HeaderLinks = styled(Col)`
   a {
@@ -32,7 +33,7 @@ const HeaderLink: BsPrefixRefForwardingComponent<"a", NavLinkProps> = (props) =>
 }
 
 export default function Header() {
-    const {user} = useUser();
+    const {user, isLoading} = useUser();
     const router = useRouter();
     const handlePanelClick = async () => {
         if (user) await router.push("/panel")
@@ -55,7 +56,7 @@ export default function Header() {
             </HeaderLinks>
             <HrWrapperComponent><Hr /></HrWrapperComponent>
             <Col xxl={1}>
-                {user ? <PanelDropdown>
+                {isLoading ? null : user ? <PanelDropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">{user.nickname}</Dropdown.Toggle>
                     <Dropdown.Menu>
                         <Dropdown.Item href="/panel">Panel</Dropdown.Item>

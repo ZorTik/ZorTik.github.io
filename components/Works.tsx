@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {ButtonComponent} from "./content/Button";
 import Loader from "./content/Loader";
+import {FormComponent} from "./content/Form";
 
 type Work = {
     img: string,
@@ -31,7 +32,7 @@ const SearchContentComponent = styled(Row)`
 `;
 const SearchContentCol = styled(Col)`
   @media screen and (max-width: 1399px) {
-    margin-top: 40px !important;
+    margin-top: ${props => props.margin ? "40px !important" : "0"};
   }
 `;
 const TagsComponent = styled.div`
@@ -160,7 +161,9 @@ const Search = () => {
             <Col className={styles.searchImg}></Col>
             <Col xl={10} className={styles.searchContent}>
                 <h1>See my works!</h1>
-                <input onChange={handleSearchValueChange} type="text" placeholder="Search..." />
+                <FormComponent>
+                    <input onChange={handleSearchValueChange} type="text" placeholder="Search..." />
+                </FormComponent>
                 <TagsComponent>
                     {categories ? categories.map((category, _i) => {
                         return <TagsButton key={_i} onClick={() => {
@@ -179,7 +182,7 @@ const Search = () => {
             <Loader />
         </Row> : null}
         <SearchContentComponent>
-            {currentPageCols().map((page, _i1) => <SearchContentCol key={_i1}>
+            {currentPageCols().map((page, _i1) => <SearchContentCol key={_i1} margin={_i1 > 0}>
                 {page.map((work, _i2) => <WorkCard key={_i2} work={work} margin={_i2 > 0} />)}
             </SearchContentCol>)}
             {currentPageCols().length < 2 ? <Col /> : null}

@@ -3,10 +3,9 @@ import * as fs from "fs";
 import xml from "xml2json";
 
 function loadWorks() {
-    const worksPath = process.cwd() + "/public/works";
-    return fs.readdirSync(worksPath)
-        .map(file => {
-            const obj = xml.toJson(fs.readFileSync(`${worksPath}/${file}/meta.xml`, "utf-8"), {object: true}) as any;
+    const root = process.cwd() + "/public/works";
+    return fs.readdirSync(root).map(file => {
+            const obj = xml.toJson(fs.readFileSync(`${root}/${file}/meta.xml`, "utf-8"), {object: true}) as any;
             const title = obj.work.title;
             const img = `/works/${file}/` + obj.work.image;
             const description = obj.work.description;

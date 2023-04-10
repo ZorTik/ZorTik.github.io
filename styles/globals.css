@@ -4,6 +4,7 @@
   --color-secondary: #bebcc3;
   --color-shade: #5d6a75;
   --color-shade-2: #6f7378;
+  --color-input: #475561;
 }
 
 html,
@@ -28,12 +29,6 @@ a[class="carousel-control-prev"]:hover, a[class="carousel-control-next"]:hover {
 
 h1, h2, h3, h4, h5, p {
   color: var(--color-secondary);
-}
-
-input {
-  border: none;
-  outline: none;
-  padding-left: 10px;
 }
 
 * {

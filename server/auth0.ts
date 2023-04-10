@@ -1,5 +1,6 @@
 import {RequestInit} from "next/dist/server/web/spec-extension/request";
-import {Claims} from "@auth0/nextjs-auth0";
+import {Claims, getSession} from "@auth0/nextjs-auth0";
+import {NextApiRequest, NextApiResponse} from "next";
 
 const baseUrl = process.env.AUTH0_ISSUER_BASE_URL;
 
@@ -38,7 +39,7 @@ async function prepareAuth0Request(init: RequestInit): Promise<RequestInit> {
     }
 }
 
-async function getAuth0Permissions(user: Claims) {
+async function getAuth0Permissions(user: Claims): Promise<string[]> {
     const request = await prepareAuth0Request({
         method: "GET",
     });
@@ -47,8 +48,22 @@ async function getAuth0Permissions(user: Claims) {
         .then(res => res.map((permission: any) => permission.permission_name));
 }
 
+async function privileged(req: NextApiRequest, res: NextApiResponse, node: string, func: () => PromiseLike<any> | void) {
+    const session = await getSession(req, res);
+    if (!session) {
+        res.status(401).end();
+        return;
+    }
+    if ((await getAuth0Permissions(session.user)).includes(node)) {
+        await func();
+    } else {
+        res.status(403).end();
+    }
+}
+
 export {
     bearer,
     prepareAuth0Request,
     getAuth0Permissions,
+    privileged
 }

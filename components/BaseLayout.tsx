@@ -4,7 +4,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import styled from "styled-components";
 import {useUser} from "@auth0/nextjs-auth0/client";
-import Loader from "./content/Loader";
 
 const BaseLayoutContainer = styled(Container)`
   padding: ${props => props.padding ? "30px 0" : "0"};
@@ -29,7 +28,7 @@ const BaseLayout = (props: BaseLayoutProps) => {
                         {props.children}
                     </BaseLayoutContainer>
                 </>
-            ) : <Loader />}
+            ) : null}
         </Container>
         <Footer />
     </>

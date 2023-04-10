@@ -6,7 +6,7 @@ const FormComponent = styled(Form)`
     color: var(--color-secondary);
     margin-top: 20px;
   }
-  .form-control {
+  .form-control, input {
     border: none;
     outline: none;
     padding-left: 10px;

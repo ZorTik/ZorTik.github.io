@@ -12,8 +12,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         else res.status(404).end();
     } else if(req.method === "POST") {
         const body = req.body as Article;
-        await requirePrivilegedAccess(req, res, "write:blogs", () => {
-            prismaClient.article.create({data: {...body, id: undefined,}});
+        await requirePrivilegedAccess(req, res, "write:blogs", async () => {
+            await prismaClient.article.create({data: {...body, id: undefined,}});
             statusJson(res, 200, "Created article");
         });
     } else if(req.method === "DELETE") {
@@ -27,8 +27,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             statusJson(res, 400, "No id provided");
             return;
         }
-        await requirePrivilegedAccess(req, res, "write:blogs", () => {
-            prismaClient.article.update({where: {id: Number(body.id)}, data: body,});
+        await requirePrivilegedAccess(req, res, "write:blogs", async () => {
+            await prismaClient.article.update({where: {id: Number(body.id)}, data: body,});
             statusJson(res, 200, "Updated article");
         });
     } else {

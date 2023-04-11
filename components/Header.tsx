@@ -6,9 +6,11 @@ import {BsPrefixRefForwardingComponent} from "react-bootstrap/helpers";
 import {useRouter} from "next/router";
 import {ButtonComponent, DropdownComponent} from "./content/Button";
 import {useUser} from "@auth0/nextjs-auth0/client";
-import Loader from "./content/Loader";
 
 const HeaderLinks = styled(Col)`
+  .navbar-brand, .navbar-nav > a {
+    transform: translateY(-1px);
+  }
   .navbar-nav {
     > a {
       color: #d2d2d2;

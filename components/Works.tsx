@@ -192,7 +192,7 @@ const Search = () => {
             {works.filter((_, i) => i % 2 == 0).map((_, i) => <SearchPaginationItem key={i / 2} active={i === page} />)}
             <SearchPaginationNext onClick={() => handlePageChange(1)} />
         </SearchPaginationComponent>
-        <Row><ButtonComponent target="_blank" href="https://github.com/ZorTik">Show more</ButtonComponent></Row>
+        <Row className="d-flex flex-row justify-content-center"><ButtonComponent target="_blank" href="https://github.com/ZorTik">Show more</ButtonComponent></Row>
     </Col>
 }
 

@@ -1,12 +1,9 @@
 import PanelLayout from "../../components/panel/PanelLayout";
-import {Col, Spinner, Tab} from "react-bootstrap";
+import {Col, Row, Spinner, Tab, Table} from "react-bootstrap";
 import {useUserPermissions} from "../../hooks/auth0";
 import Loader from "../../components/content/Loader";
 import {TabsComponent} from "../../components/content/Tabs";
 import styled from "styled-components";
-import ArticleCard from "../../components/blog/ArticleCard";
-import useSWR from "swr";
-import {fetcher} from "../../hooks/swr";
 import {Article} from "../../types/blog";
 import {FormComponent} from "../../components/content/Form";
 import {ButtonComponent} from "../../components/content/Button";
@@ -25,8 +22,6 @@ const TabContent = styled(Tab.Content)`
 `;
 
 const ArticlesTabContent = () => {
-    const {data, error, isLoading} = useSWR<Article[]>("/api/blog/articles", fetcher);
-
     const [title, setTitle] = useState<string>("");
     const [content, setContent] = useState<string>("");
     const [lock, setLock] = useState<boolean>(false);
@@ -57,39 +52,35 @@ const ArticlesTabContent = () => {
     return (
         <TabContent>
             <h1>Blog</h1>
-            {isLoading ? <Loader /> : (
-                data?.length == 0
-                    ? <p>No articles found</p>
-                    : data?.map((article, index) => <ArticleCard key={index} article={article} />)
-            )}
-            {error ? <p>Error loading articles</p> : null}
             <NotificationsComponent />
-            <Pane color="var(--bs-green)">
-                <h1>Create Blog</h1>
-                <FormComponent onSubmit={handlePublish}>
-                    <FormComponent.Group controlId="formBasicEmail">
-                        <FormComponent.Label>Title</FormComponent.Label>
-                        <FormComponent.Control
-                            onChange={(e) => setTitle(e.target.value)}
-                            value={title}
-                            type="text"
-                            placeholder="Enter title"
-                            disabled={lock}
-                            required />
-                    </FormComponent.Group>
-                    <FormComponent.Group controlId="formContent">
-                        <FormComponent.Label>Content</FormComponent.Label>
-                        <FormComponent.Control
-                            onChange={(e) => setContent(e.target.value)}
-                            value={content}
-                            as="textarea"
-                            rows={3}
-                            placeholder="Enter content"
-                            disabled={lock}
-                            required />
-                    </FormComponent.Group>
-                    <ButtonComponent type="submit">{lock ? <Spinner animation="border" role="status" /> : null}Publish</ButtonComponent>
-                </FormComponent>
+            <Pane className="mt-3">
+                <Pane.Content color="var(--bs-green)">
+                    <h1>Create Blog</h1>
+                    <FormComponent onSubmit={handlePublish}>
+                        <FormComponent.Group controlId="formBasicEmail">
+                            <FormComponent.Label>Title</FormComponent.Label>
+                            <FormComponent.Control
+                                onChange={(e) => setTitle(e.target.value)}
+                                value={title}
+                                type="text"
+                                placeholder="Enter title"
+                                disabled={lock}
+                                required />
+                        </FormComponent.Group>
+                        <FormComponent.Group controlId="formContent">
+                            <FormComponent.Label>Content</FormComponent.Label>
+                            <FormComponent.Control
+                                onChange={(e) => setContent(e.target.value)}
+                                value={content}
+                                as="textarea"
+                                rows={3}
+                                placeholder="Enter content"
+                                disabled={lock}
+                                required />
+                        </FormComponent.Group>
+                        <ButtonComponent type="submit">{lock ? <Spinner animation="border" role="status" /> : null}Publish</ButtonComponent>
+                    </FormComponent>
+                </Pane.Content>
             </Pane>
         </TabContent>
     )

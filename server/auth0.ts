@@ -48,14 +48,12 @@ async function getAuth0Permissions(user: Claims): Promise<string[]> {
         .then(res => res.map((permission: any) => permission.permission_name));
 }
 
-async function privileged(req: NextApiRequest, res: NextApiResponse, node: string, func: () => PromiseLike<any> | void) {
+async function requirePrivilegedAccess(req: NextApiRequest, res: NextApiResponse, node: string, func: () => PromiseLike<any> | void) {
     const session = await getSession(req, res);
-    if (!session) {
-        res.status(401).end();
-        return;
-    }
-    if ((await getAuth0Permissions(session.user)).includes(node)) {
+    if (session && (await getAuth0Permissions(session.user)).includes(node)) {
         await func();
+    } else if(!session) {
+        res.status(401).end();
     } else {
         res.status(403).end();
     }
@@ -65,5 +63,5 @@ export {
     bearer,
     prepareAuth0Request,
     getAuth0Permissions,
-    privileged
+    requirePrivilegedAccess
 }

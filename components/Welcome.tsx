@@ -14,6 +14,7 @@ const TechIcon = (props: { className: string }) => {
 const ScrollButton = styled(ButtonComponent)`
   margin-top: auto !important;
   margin-bottom: 45px !important;
+  align-self: end !important;
 `;
 
 const Welcome = () => {

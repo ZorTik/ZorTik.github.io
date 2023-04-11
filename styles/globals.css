@@ -4,6 +4,7 @@
   --color-secondary: #bebcc3;
   --color-shade: #5d6a75;
   --color-shade-2: #6f7378;
+  --color-shade-3: #2d3643;
   --color-input: #475561;
 }
 
@@ -39,6 +40,11 @@ h1, h2, h3, h4, h5, p {
   border-radius: 50%;
 }
 
-.nav-link {
-  transform: translateY(2px);
+.navbar-brand {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+.navbar-brand, .navbar-nav {
+  align-items: center !important;
 }

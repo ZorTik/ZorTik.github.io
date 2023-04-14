@@ -1,7 +1,7 @@
-import {Button, Col, Container, Dropdown, Form, Nav, Navbar, NavDropdown, NavLinkProps, Offcanvas, Row} from "react-bootstrap";
+import {Col, Container, Nav, Navbar, NavLinkProps, Row} from "react-bootstrap";
 import Hr from "./Hr";
 import Image from "next/image";
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import {BsPrefixRefForwardingComponent} from "react-bootstrap/helpers";
 import {useRouter} from "next/router";
 
@@ -55,7 +55,6 @@ const DropdownHeader = () => {
                         <HeaderLink href="/#about">About Me</HeaderLink>
                         <HeaderLink href="/#work">My Work</HeaderLink>
                         <HeaderLink href="/#contacts">Contact Me</HeaderLink>
-                        <HeaderLink href="/blog">Blog</HeaderLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

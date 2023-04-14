@@ -10,6 +10,8 @@ import {ButtonComponent} from "../../components/content/Button";
 import {useState} from "react";
 import Pane from "../../components/content/Pane";
 import {NotificationsComponent, pushNotification} from "../../components/content/Notification";
+import {GetServerSidePropsContext} from "next";
+import {getSession} from "@auth0/nextjs-auth0";
 
 const TabContent = styled(Tab.Content)`
   @media screen and (min-width: 991px) {
@@ -108,4 +110,17 @@ export default function Panel() {
             ) : <Loader />}
         </PanelLayout>
     )
+}
+
+export async function getServerSideProps({req, res}: GetServerSidePropsContext) {
+    const session = await getSession(req, res);
+    if (!session || !session.accessToken) {
+        return {
+            redirect: {
+                destination: "/api/auth/login",
+                permanent: true,
+            }
+        }
+    }
+    return {props: {}}
 }

@@ -4,8 +4,6 @@ import Image from "next/image";
 import styled, {css} from "styled-components";
 import {BsPrefixRefForwardingComponent} from "react-bootstrap/helpers";
 import {useRouter} from "next/router";
-import {ButtonComponent, DropdownComponent} from "./content/Button";
-import {useUser} from "@auth0/nextjs-auth0/client";
 
 const HeaderLinks = styled(Col)`
   .navbar-brand, .navbar-nav > a {
@@ -30,11 +28,6 @@ const HrWrapperComponent = styled(Col)`
     display: none !important;
   }
 `;
-const panelButtonStyle = css`
-  margin-left: 10px;
-`;
-const PanelButton = styled(ButtonComponent)`${panelButtonStyle}`;
-const PanelDropdown = styled(DropdownComponent)`${panelButtonStyle}`;
 const ToggleButton = styled(Navbar.Toggle)`
   border: none !important;
   box-shadow: none !important;
@@ -63,28 +56,11 @@ const DropdownHeader = () => {
                         <HeaderLink href="/#work">My Work</HeaderLink>
                         <HeaderLink href="/#contacts">Contact Me</HeaderLink>
                         <HeaderLink href="/blog">Blog</HeaderLink>
-                        <PanelComponent />
                     </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
     )
-}
-
-const PanelComponent = () => {
-    const {user, isLoading} = useUser();
-    const router = useRouter();
-    const handlePanelClick = async () => {
-        if (user) await router.push("/panel")
-        else await router.push("/api/auth/login");
-    }
-    return isLoading ? null : user ? <PanelDropdown>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">{user.nickname}</Dropdown.Toggle>
-        <Dropdown.Menu>
-            <Dropdown.Item href="/panel">Panel</Dropdown.Item>
-            <Dropdown.Item href="/api/auth/logout">Logout</Dropdown.Item>
-        </Dropdown.Menu>
-    </PanelDropdown> : <PanelButton onClick={handlePanelClick}>Panel</PanelButton>;
 }
 
 export default function Header() {

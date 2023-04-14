@@ -66,7 +66,7 @@ const DropdownHeader = () => {
 export default function Header() {
     return (
         <Row className={`d-flex flex-row`} id="home">
-            <HeaderLinks md={6} sm={12}>
+            <HeaderLinks md={4} sm={12}>
                 <DropdownHeader />
             </HeaderLinks>
             <HrWrapperComponent><Hr /></HrWrapperComponent>

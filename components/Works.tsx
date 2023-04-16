@@ -59,7 +59,8 @@ const TagsComponent = styled.div`
   }
 `;
 const TagsButton = styled(ButtonComponent)`
-    margin-right: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
 `;
 const SearchPaginationComponent = styled(Pagination)`
   margin-top: 20px;

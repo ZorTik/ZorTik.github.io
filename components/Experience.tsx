@@ -70,9 +70,9 @@ const Experience = () => {
                         </Row>
                         <TechnologiesComponent>
                             <ProgressTechnology name="Java lang" progress={90} />
-                            <ProgressTechnology name="JavaScript/TypeScript lang" progress={70} />
+                            <ProgressTechnology name="JavaScript/TypeScript lang" progress={80} />
+                            <ProgressTechnology name="Python lang" progress={50} />
                             <ProgressTechnology name="C# lang" progress={40} />
-                            <ProgressTechnology name="Python lang" progress={20} />
                             <ProgressTechnology name="Go lang" progress={10} />
                         </TechnologiesComponent>
                     </Col>

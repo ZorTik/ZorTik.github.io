@@ -37,7 +37,7 @@ const ToggleButton = styled(Navbar.Toggle)`
   :hover {
     //background-color: var(--color-shade-3) !important;
     > * {
-      color: var(--color-primary-dark) !important;
+      color: var(--color-shade-2) !important;
     }
   }
 `;
@@ -54,7 +54,7 @@ const DropdownHeader = () => {
                     <Image id="logo" src="/logo.png" width={32} height={32} alt="ZorTik Logo" />
                 </Navbar.Brand>
                 <ToggleButton aria-controls="basic-navbar-nav">
-                    <FontAwesomeIcon icon="bars" color="var(--color-primary)" size="lg" />
+                    <FontAwesomeIcon icon="bars" color="var(--color-shade)" size="lg" />
                 </ToggleButton>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">

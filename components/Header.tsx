@@ -4,6 +4,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import {BsPrefixRefForwardingComponent} from "react-bootstrap/helpers";
 import {useRouter} from "next/router";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const HeaderLinks = styled(Col)`
   .navbar-brand, .navbar-nav > a {
@@ -34,7 +35,10 @@ const ToggleButton = styled(Navbar.Toggle)`
   .navbar-toggler-icon {color: var(--color-secondary) !important;}
   
   :hover {
-    background-color: var(--color-shade-3) !important;
+    //background-color: var(--color-shade-3) !important;
+    > * {
+      color: var(--color-primary-dark) !important;
+    }
   }
 `;
 const HeaderLink: BsPrefixRefForwardingComponent<"a", NavLinkProps> = (props) => {
@@ -49,7 +53,9 @@ const DropdownHeader = () => {
                 <Navbar.Brand href="/">
                     <Image id="logo" src="/logo.png" width={32} height={32} alt="ZorTik Logo" />
                 </Navbar.Brand>
-                <ToggleButton aria-controls="basic-navbar-nav" />
+                <ToggleButton aria-controls="basic-navbar-nav">
+                    <FontAwesomeIcon icon="bars" color="var(--color-primary)" size="lg" />
+                </ToggleButton>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <HeaderLink href="/#about">About Me</HeaderLink>

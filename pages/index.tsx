@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type {NextPage} from 'next'
 import BaseLayout from "../components/BaseLayout";
 import Welcome from "../components/Welcome";
 import Experience from "../components/Experience";

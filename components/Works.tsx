@@ -1,5 +1,5 @@
 import styles from "../styles/Works.module.css";
-import {Badge, Button, Col, Pagination, Row} from "react-bootstrap";
+import {Badge, Col, Pagination, Row} from "react-bootstrap";
 import styled, {css} from "styled-components";
 import {ChangeEventHandler, useEffect, useState} from "react";
 import _, {Dictionary} from "underscore";

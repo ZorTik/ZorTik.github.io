@@ -201,6 +201,11 @@ type WorkCardProps = {
     work: Work,
     margin?: boolean
 }
+const WorkCardComponent = styled(Row)`
+  :hover img {
+    filter: none;
+  }
+`;
 const WorkCardImageCol = styled(Col)`
   display: flex !important;
   justify-content: center !important;
@@ -213,10 +218,6 @@ const WorkCardImageCol = styled(Col)`
     border-radius: 8px;
 
     filter: grayscale(100%) brightness(0.8);
-    
-    :hover {
-      filter: none;
-    }
   }
 `;
 const WorkDetailsCol = styled(Col)`
@@ -243,9 +244,9 @@ const WorkCardBadge = styled(Badge)`
   background-color: var(--color-shade) !important;
   margin-right: 4px;
 `;
-const WorkCard = (props: WorkCardProps) => {
+const WorkCard = styled((props: WorkCardProps) => {
     const {work} = props;
-    return <Row style={{
+    return <WorkCardComponent style={{
         marginTop: props.margin ? "40px" : "0px",
         minHeight: "253px"
     }}>
@@ -257,8 +258,10 @@ const WorkCard = (props: WorkCardProps) => {
             {work.categories.map((c, i) => <WorkCardBadge key={i}>{c}</WorkCardBadge>)}
             <p>{work.description}</p>
         </WorkDetailsCol>
-    </Row>
-}
+    </WorkCardComponent>
+})`
+  
+`;
 
 const Works = () => {
     return <>

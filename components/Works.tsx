@@ -217,7 +217,7 @@ const WorkCardImageCol = styled(Col)`
     height: 200px !important;
     border-radius: 8px;
 
-    filter: grayscale(100%) brightness(0.8);
+    //filter: grayscale(100%) brightness(0.8);
   }
 `;
 const WorkDetailsCol = styled(Col)`

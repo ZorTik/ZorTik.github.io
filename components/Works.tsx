@@ -45,14 +45,16 @@ const TagsComponent = styled.div`
   }
   
   @media screen and (max-width: 767px) {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*flex-direction: column;
     justify-content: center !important;
-    >* {
+    >* { // Tag buttons
       margin-top: 8px !important;
       margin-bottom: 0 !important;
       align-self: center !important;
       width: 100% !important;
-    }
+    }*/
   }
   @media screen and (min-width: 768px) {
     flex-wrap: wrap;

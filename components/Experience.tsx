@@ -91,7 +91,7 @@ const Experience = () => {
                     </Col>
                     <Col className={styles.expLore} xl={5}>
                         <h1 id="about">Who am I?</h1>
-                        <AboutMeText speed={5} value={"I am a driven and curious programmer with a passion for creating innovative solutions with a strong foundation in back-end development. I am always eager to learn and embrace new challenges, and am dedicated to delivering high-quality work that meets the unique needs of each project. When I&apos;m not coding, you can usually find me listening music, or reading up on the latest tech trends. I&quot;m excited to connect with other like-minded individuals and collaborate on projects that make a real impact."} />
+                        <AboutMeText speed={5} value={"I am a driven and curious programmer with a passion for creating innovative solutions with a strong foundation in back-end development. I am always eager to learn and embrace new challenges, and am dedicated to delivering high-quality work that meets the unique needs of each project. When I&apos;m not coding, you can usually find me listening music, or reading up on the latest tech trends. I&apos;m excited to connect with other like-minded individuals and collaborate on projects that make a real impact."} />
                     </Col>
                 </Row>
             </Container>

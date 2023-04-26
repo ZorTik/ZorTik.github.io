@@ -28,7 +28,7 @@ export default function Socials() {
         setDiscordClicked(true);
     }
     return <>
-        <h1 className="text-center" style={{marginTop: "80px"}}>Let&rsquo;s build something.</h1>
+        <h1 className="text-center" style={{marginTop: "80px"}}>Let&rsquo;s build something</h1>
         <SocialsComponent className="px-3 py-4" id="contacts">
             <Col><SocialButton bgColor="#4d5fa7" onClick={handleDiscordClick}>{discordClicked ? "Discord tag copied!" : "Discord"}</SocialButton></Col>
             <Col><SocialButton bgColor="#696969" href="https://github.com/ZorTik" target="_blank">GitHub</SocialButton></Col>

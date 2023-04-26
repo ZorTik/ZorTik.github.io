@@ -1,4 +1,4 @@
-import BaseLayout from "../../components/BaseLayout";
+import BaseLayout from "../../components/layout/BaseLayout";
 import {ArticleCardGrid} from "../../components/blog/ArticleCard";
 
 export default function Blog() {

@@ -1,13 +1,13 @@
-import styles from "../styles/Works.module.css";
+import styles from "../../styles/Works.module.css";
 import {Badge, Col, Pagination, Row} from "react-bootstrap";
 import styled, {css} from "styled-components";
 import {ChangeEventHandler, useEffect, useState} from "react";
 import _, {Dictionary} from "underscore";
 import Image from "next/image";
 import Link from "next/link";
-import {ButtonComponent} from "./content/Button";
-import Loader from "./content/Loader";
-import {FormComponent} from "./content/Form";
+import {ButtonComponent} from "../content/Button";
+import Loader from "../content/Loader";
+import {FormComponent} from "../content/Form";
 
 type Work = {
     img: string,
@@ -96,8 +96,8 @@ const searchPagArrowStyle = css`
     background: none !important;
     transform: translateY(-15%);
   }
-  .page-link:hover, .page-link:focus, .page-link:active {
-    background-color: var(--bs-gray-600) !important;
+  .page-link:hover, .page-link:active {
+    background-color: var(--color-shade-3) !important;
   }
 `;
 const SearchPaginationNext = styled(Pagination.Next)`${searchPagArrowStyle}`;
@@ -116,7 +116,7 @@ const Search = () => {
         setAttributes({...attributes, query: (e.target as any).value || ""});
     }
     const handlePageChange = (change: number) => {
-        if (page + change < 0 || page + change + 1 >= works.length)
+        if (page + change < 0 || (page + change) * 2 >= works.length)
             return;
 
         setPage(page + change);
@@ -192,7 +192,8 @@ const Search = () => {
         </SearchContentComponent>
         <SearchPaginationComponent>
             <SearchPaginationPrev onClick={() => handlePageChange(-1)} />
-            {works.filter((_, i) => i % 2 == 0).map((_, i) => <SearchPaginationItem key={i / 2} active={i === page} />)}
+            {works.filter((_, i) => i % 2 == 0).map((_, i) =>
+                <SearchPaginationItem key={i / 2} active={i === page} onClick={() => setPage(i)} />)}
             <SearchPaginationNext onClick={() => handlePageChange(1)} />
         </SearchPaginationComponent>
         <Row className="d-flex flex-row justify-content-center"><ButtonComponent target="_blank" href="https://github.com/ZorTik">Show more</ButtonComponent></Row>

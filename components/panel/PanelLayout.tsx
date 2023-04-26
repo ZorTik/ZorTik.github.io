@@ -1,5 +1,5 @@
 import {PropsWithChildren} from "react";
-import BaseLayout from "../BaseLayout";
+import BaseLayout from "../layout/BaseLayout";
 import AuthRequired from "../auth/AuthRequired";
 import {Col, Row} from "react-bootstrap";
 

@@ -1,6 +1,6 @@
 import {Col, Container, ProgressBar, Row} from "react-bootstrap";
 
-import styles from "../styles/Experience.module.css";
+import styles from "../../styles/Experience.module.css";
 import {PropsWithChildren, useEffect, useState} from "react";
 import styled from "styled-components";
 

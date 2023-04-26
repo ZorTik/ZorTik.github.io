@@ -1,5 +1,5 @@
 import {Col, Container, Nav, Navbar, NavLinkProps, Row} from "react-bootstrap";
-import Hr from "./Hr";
+import Hr from "../content/Hr";
 import Image from "next/image";
 import styled from "styled-components";
 import {BsPrefixRefForwardingComponent} from "react-bootstrap/helpers";

@@ -1,8 +1,8 @@
 import {Button, Col, Row} from "react-bootstrap";
 
-import styles from "../styles/Welcome.module.css";
+import styles from "../../styles/Welcome.module.css";
 import FadeIn from "react-fade-in";
-import {ButtonComponent} from "./content/Button";
+import {ButtonComponent} from "../content/Button";
 import styled from "styled-components";
 
 const TechIconComponent = styled.i`

@@ -1,4 +1,4 @@
-import BaseLayout from "../components/BaseLayout";
+import BaseLayout from "../components/layout/BaseLayout";
 
 export default function ThirdParty() {
     return (

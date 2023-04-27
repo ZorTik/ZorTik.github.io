@@ -8,14 +8,17 @@ import Socials from "../components/index/Socials";
 
 const Home: NextPage = () => {
   return (
-      <BaseLayout padding={false}>
-          <FadeIn>
-              <Welcome />
-              <Experience />
-              <Works />
-              <Socials />
-          </FadeIn>
-      </BaseLayout>
+      <>
+          <BaseLayout padding={false}>
+              <FadeIn>
+                  <Welcome />
+                  <Experience />
+                  <Works />
+                  <Socials />
+              </FadeIn>
+          </BaseLayout>
+          <BaseLayout.Footer />
+      </>
   )
 }
 

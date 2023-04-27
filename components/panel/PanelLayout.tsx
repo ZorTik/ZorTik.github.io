@@ -1,10 +1,10 @@
 import {PropsWithChildren} from "react";
 import BaseLayout from "../layout/BaseLayout";
-import AuthRequired from "../auth/AuthRequired";
+import AuthRequired from "../access/AuthRequired";
 import {Col, Row} from "react-bootstrap";
 
 export default function PanelLayout(props: PropsWithChildren) {
-    return (
+    return <>
         <BaseLayout>
             <AuthRequired>
                 <Row>
@@ -12,5 +12,6 @@ export default function PanelLayout(props: PropsWithChildren) {
                 </Row>
             </AuthRequired>
         </BaseLayout>
-    )
+        <BaseLayout.Footer />
+    </>
 }

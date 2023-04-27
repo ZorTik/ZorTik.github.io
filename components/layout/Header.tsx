@@ -1,10 +1,16 @@
-import {Col, Container, Nav, Navbar, NavLinkProps, Row} from "react-bootstrap";
+import {Button, Col, Container, Nav, Navbar, NavLinkProps, Overlay, Popover, PopoverBody, Row} from "react-bootstrap";
 import Hr from "../content/Hr";
 import Image from "next/image";
 import styled from "styled-components";
 import {BsPrefixRefForwardingComponent} from "react-bootstrap/helpers";
 import {useRouter} from "next/router";
+import Link from "next/link"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faBars, faSliders} from "@fortawesome/free-solid-svg-icons";
+import {MouseEventHandler, useRef, useState} from "react";
+import {DOMContainer} from "@restart/ui/useWaitForDOMRef";
+import {useUser} from "@auth0/nextjs-auth0/client";
+import AuthRequired from "../access/AuthRequired";
 
 const HeaderLinks = styled(Col)`
   .navbar-brand, .navbar-nav > a {
@@ -51,29 +57,35 @@ const DropdownHeader = () => {
         <Navbar expand="md">
             <Container>
                 <Navbar.Brand href="/">
-                    <Image id="logo" src="/logo.png" width={32} height={32} alt="ZorTik Logo" />
+                    <Image
+                        role="button"
+                        id="logo" src="/logo.png"
+                        width={32}
+                        height={32}
+                        alt="ZorTik Logo"
+                    />
                 </Navbar.Brand>
                 <ToggleButton aria-controls="basic-navbar-nav">
-                    <FontAwesomeIcon icon="bars" color="var(--color-shade)" size="lg" />
+                    <FontAwesomeIcon icon={faBars} color="var(--color-shade)" size="lg"/>
                 </ToggleButton>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
+                        <HeaderLink href="/#">Home</HeaderLink>
                         <HeaderLink href="/#about">About Me</HeaderLink>
                         <HeaderLink href="/#work">My Work</HeaderLink>
                         <HeaderLink href="/#contacts">Contact Me</HeaderLink>
+                        <HeaderLink href="/blog">Blog</HeaderLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-    )
+    );
 }
 
 export default function Header() {
     return (
         <Row className={`d-flex flex-row`} id="home">
-            <HeaderLinks md={4} sm={12}>
-                <DropdownHeader />
-            </HeaderLinks>
+            <HeaderLinks md={5} sm={12}><DropdownHeader /></HeaderLinks>
             <HrWrapperComponent><Hr /></HrWrapperComponent>
         </Row>
     )

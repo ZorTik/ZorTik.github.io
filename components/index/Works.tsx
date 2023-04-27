@@ -87,17 +87,20 @@ const SearchPaginationItem = styled(Pagination.Item)`
 `;
 const searchPagArrowStyle = css`
   padding: 0 20px;
+
   * {
     box-shadow: none !important;
     border: none !important;
     color: var(--color-shade) !important;
   }
+
   > * {
     background: none !important;
     transform: translateY(-15%);
   }
+
   .page-link:hover, .page-link:active {
-    background-color: var(--color-shade-3) !important;
+    background-color: var(--color-shade-4) !important;
   }
 `;
 const SearchPaginationNext = styled(Pagination.Next)`${searchPagArrowStyle}`;

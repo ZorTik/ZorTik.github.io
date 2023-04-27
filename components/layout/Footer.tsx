@@ -5,7 +5,6 @@ import Link from "next/link";
 const FooterComponent = styled(Container)`
   color: var(--color-shade-2);
   padding: 2rem 0;
-  margin-top: 20px;
   
   #attributions a, #authors {
     color: var(--color-shade) !important;

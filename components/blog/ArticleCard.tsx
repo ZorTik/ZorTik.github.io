@@ -1,9 +1,11 @@
-import {Card, Col, Row} from "react-bootstrap";
+import {Card, Col, Placeholder, Row} from "react-bootstrap";
 import {Article} from "../../types/blog";
 import styled from "styled-components";
 import useSWR from "swr";
 import {fetcher} from "../../hooks/swr";
 import {useEffect, useState} from "react";
+import {ButtonComponent} from "../content/Button";
+import SWRContent from "../access/SWRContent";
 
 type ArticleCardProps = {
     article: Article
@@ -14,35 +16,31 @@ type ArticleCardGridProps = {
 }
 
 const ArticleCardComponent = styled(Card)`
-  background-color: unset;
-  padding: 20px;
-  border: 1px solid var(--color-shade-3);
-  border-radius: 5px;
-  height: 260px;
-  
+  background-color: var(--color-shade-4);
+  border: 1px solid var(--color-shade);
+
   h1 {
+    color: var(--color-shade-2);
     font-size: 1.5rem;
   }
+
   * {
     background: none;
     border-top: none;
     border-bottom: none;
+    word-break: keep-all;
   }
 `;
 
 export default function ArticleCard({article}: ArticleCardProps) { // TODO
-    return <ArticleCardComponent>
+    return <ArticleCardComponent role="button" className="px-3 py-4">
         <ArticleCardComponent.Header>
             <h1>{article.title}</h1>
-            <span>{article.content.split(" ").slice(0, 30).join(" ")}...</span>
         </ArticleCardComponent.Header>
-        <ArticleCardComponent.Footer>
-
-        </ArticleCardComponent.Footer>
     </ArticleCardComponent>
 }
 
-function LocalArticleCardGrid({cols, articles}: ArticleCardGridProps) {
+function DecoratedArticleCardGrid({cols, articles}: ArticleCardGridProps) {
     const [rows, setRows] = useState<any[]>([]);
     useEffect(() => {
         const rows: any[] = [];
@@ -60,11 +58,14 @@ function LocalArticleCardGrid({cols, articles}: ArticleCardGridProps) {
     </>
 }
 
-function AllArticleGrid({cols}: ArticleCardGridProps) {
-    const {data} = useSWR("/api/blog/articles", fetcher);
-    return data ? <LocalArticleCardGrid cols={cols} articles={data} /> : null;
+function SWRArticleGrid({cols}: ArticleCardGridProps) {
+    const swr = useSWR("/api/blog/articles", fetcher);
+    const {data} = swr;
+    return <SWRContent swr={swr}>
+        <DecoratedArticleCardGrid cols={cols} articles={data} />
+    </SWRContent>
 }
 
 export function ArticleCardGrid({cols, articles}: ArticleCardGridProps) {
-    return articles ? <LocalArticleCardGrid cols={cols} articles={articles} /> : <AllArticleGrid cols={cols} />
+    return articles ? <DecoratedArticleCardGrid cols={cols} articles={articles} /> : <SWRArticleGrid cols={cols} />
 }

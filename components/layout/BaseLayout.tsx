@@ -1,5 +1,5 @@
-import {PropsWithChildren} from "react";
-import {Container} from "react-bootstrap";
+import {PropsWithChildren, ReactElement} from "react";
+import {Container, ContainerProps} from "react-bootstrap";
 import Header from "./Header";
 import Footer from "./Footer";
 import styled from "styled-components";
@@ -12,20 +12,25 @@ const BaseLayoutContainer = styled(Container)`
   }
 `;
 
-type BaseLayoutProps = PropsWithChildren & {
+export type BaseLayoutType = ((props: BaseLayoutProps) => ReactElement) & {
+    Footer: () => ReactElement
+}
+
+type BaseLayoutProps = PropsWithChildren & ContainerProps & {
     padding?: boolean
 }
 
 const BaseLayout = (props: BaseLayoutProps) => {
-    return <>
-        <Container>
-            <Header />
-            <BaseLayoutContainer padding={props.padding ?? true} fluid>
-                {props.children}
-            </BaseLayoutContainer>
-        </Container>
-        <Footer />
-    </>
+    return <Container {...props}>
+        <Header />
+        <BaseLayoutContainer padding={props.padding ?? true} fluid>
+            {props.children}
+        </BaseLayoutContainer>
+    </Container>
 }
 
-export default BaseLayout;
+const FooterComponent = () => <Footer />;
+
+BaseLayout.Footer = FooterComponent;
+
+export default BaseLayout as BaseLayoutType;

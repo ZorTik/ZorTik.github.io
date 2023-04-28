@@ -27,6 +27,7 @@ type ProgressTechnologyProps = PropsWithChildren & {
 }
 const ProgressLabelComponent = styled.div`
   width: 60%;
+  padding: 0 8px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

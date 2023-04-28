@@ -34,6 +34,19 @@ const HrWrapperComponent = styled(Col)`
   @media screen and (max-width: 1400px) {
     display: none !important;
   }
+  
+  > * {
+    animation: idk 0.5s ease-in;
+  }
+
+  @keyframes idk {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
 `;
 const ToggleButton = styled(Navbar.Toggle)`
   border: none !important;

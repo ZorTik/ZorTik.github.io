@@ -5,12 +5,22 @@ import {useState} from "react";
 const SocialsComponent = styled(Row)`
   background-color: var(--color-shade-4);
   border: 1px solid var(--color-shade-2);
-  margin: 20px 0 80px 0;
+  margin: 60px 0 80px 0;
 
   > .col {
     display: flex;
     flex-direction: column;
     justify-content: center !important;
+  }
+
+  animation: socials 5s infinite linear;
+
+  @keyframes socials {
+    0% { filter: drop-shadow(0 0 0.25rem #4d5fa7); }
+    25% { filter: drop-shadow(0 0 0.25rem #696969); }
+    50% { filter: drop-shadow(0 0 0.25rem var(--color-primary-dark)); }
+    75% { filter: drop-shadow(0 0 0.25rem #696969); }
+    100% { filter: drop-shadow(0 0 0.25rem #4d5fa7); }
   }
 `;
 const SocialButton = styled(Button)`
@@ -18,7 +28,7 @@ const SocialButton = styled(Button)`
   border: none !important;
 
   :hover, :focus, :active {
-    background-color: ${props => props.bgColor ?? "#3b4754"} !important;
+    background-color: ${props => props.bgcolor ?? "#3b4754"} !important;
   }
 `;
 
@@ -31,9 +41,9 @@ export default function Socials() {
     return <>
         <h2 className="text-center" style={{marginTop: "80px"}}>Let&rsquo;s build something</h2>
         <SocialsComponent className="px-3 py-4" id="contacts">
-            <Col><SocialButton bgColor="#4d5fa7" onClick={handleDiscordClick}>{discordClicked ? "Discord tag copied!" : "Discord"}</SocialButton></Col>
-            <Col><SocialButton bgColor="#696969" href="https://github.com/ZorTik" target="_blank">GitHub</SocialButton></Col>
-            <Col><SocialButton bgColor="#c60f55" href="https://instagram.com/zortik_official" target="_blank">Instagram</SocialButton></Col>
+            <Col><SocialButton bgcolor="#4d5fa7" onClick={handleDiscordClick}>{discordClicked ? "Discord tag copied!" : "Discord"}</SocialButton></Col>
+            <Col><SocialButton bgcolor="#696969" href="https://github.com/ZorTik" target="_blank">GitHub</SocialButton></Col>
+            <Col><SocialButton bgcolor="#c60f55" href="https://instagram.com/zortik_official" target="_blank">Instagram</SocialButton></Col>
         </SocialsComponent>
     </>
 }

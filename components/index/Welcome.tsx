@@ -15,6 +15,13 @@ const ScrollButton = styled(ButtonComponent)`
   margin-top: auto !important;
   margin-bottom: 45px !important;
   align-self: end !important;
+  animation: scrollButton 5s infinite;
+
+  @keyframes scrollButton {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+    100% { transform: translateY(0); }
+  }
 `;
 
 const Welcome = () => {

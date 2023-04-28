@@ -47,14 +47,6 @@ const TagsComponent = styled.div`
   @media screen and (max-width: 767px) {
     flex-direction: row;
     flex-wrap: wrap;
-    /*flex-direction: column;
-    justify-content: center !important;
-    >* { // Tag buttons
-      margin-top: 8px !important;
-      margin-bottom: 0 !important;
-      align-self: center !important;
-      width: 100% !important;
-    }*/
   }
   @media screen and (min-width: 768px) {
     flex-wrap: wrap;
@@ -147,7 +139,7 @@ const Search = () => {
             })
         }).then(res => res.json()).then(data => {
             const works: Work[] & {page: number} = data.map((w: any, i: number) => {
-                return {...w, page: Number(Math.floor(i / 2))};
+                return {...w, page: Number(Math.floor(i % 4))};
             });
             const worksByPage: Dictionary<Work[]> = _.groupBy(works, "page");
             setWorks(_.values(worksByPage));

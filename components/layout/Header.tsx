@@ -87,7 +87,6 @@ const DropdownHeader = () => {
                         <HeaderLink href="/#about">About Me</HeaderLink>
                         <HeaderLink href="/#work">My Work</HeaderLink>
                         <HeaderLink href="/#contacts">Contact Me</HeaderLink>
-                        <HeaderLink href="/blog">Blog</HeaderLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

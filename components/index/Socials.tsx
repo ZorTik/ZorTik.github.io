@@ -16,11 +16,11 @@ const SocialsComponent = styled(Row)`
   animation: socials 5s infinite linear;
 
   @keyframes socials {
-    0% { filter: drop-shadow(0 0 0.25rem #4d5fa7); }
-    25% { filter: drop-shadow(0 0 0.25rem #696969); }
-    50% { filter: drop-shadow(0 0 0.25rem var(--color-primary-dark)); }
-    75% { filter: drop-shadow(0 0 0.25rem #696969); }
-    100% { filter: drop-shadow(0 0 0.25rem #4d5fa7); }
+    0% { filter: drop-shadow(0 0 0.1rem #4d5fa7); }
+    25% { filter: drop-shadow(0 0 0.1rem #696969); }
+    50% { filter: drop-shadow(0 0 0.1rem var(--color-primary-dark)); }
+    75% { filter: drop-shadow(0 0 0.1rem #696969); }
+    100% { filter: drop-shadow(0 0 0.1rem #4d5fa7); }
   }
 `;
 const SocialButton = styled(Button)`

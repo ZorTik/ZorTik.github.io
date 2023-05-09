@@ -12,16 +12,6 @@ const SocialsComponent = styled(Row)`
     flex-direction: column;
     justify-content: center !important;
   }
-
-  animation: socials 5s infinite linear;
-
-  @keyframes socials {
-    0% { filter: drop-shadow(0 0 0.1rem #4d5fa7); }
-    25% { filter: drop-shadow(0 0 0.1rem #696969); }
-    50% { filter: drop-shadow(0 0 0.1rem var(--color-primary-dark)); }
-    75% { filter: drop-shadow(0 0 0.1rem #696969); }
-    100% { filter: drop-shadow(0 0 0.1rem #4d5fa7); }
-  }
 `;
 const SocialButton = styled(Button)`
   background-color: #3c4956;
@@ -39,7 +29,6 @@ export default function Socials() {
         setDiscordClicked(true);
     }
     return <>
-        <h2 className="text-center" style={{marginTop: "80px"}}>Let&rsquo;s build something</h2>
         <SocialsComponent className="px-3 py-4" id="contacts">
             <Col><SocialButton bgcolor="#4d5fa7" onClick={handleDiscordClick}>{discordClicked ? "Discord tag copied!" : "Discord"}</SocialButton></Col>
             <Col><SocialButton bgcolor="#696969" href="https://github.com/ZorTik" target="_blank">GitHub</SocialButton></Col>

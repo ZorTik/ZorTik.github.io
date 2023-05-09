@@ -49,3 +49,7 @@ h1, h2, h3, h4, h5, p {
 .navbar-brand, .navbar-nav {
   align-items: center !important;
 }
+
+.bg-primarydark {
+  background-color: var(--color-primary-dark) !important;
+}

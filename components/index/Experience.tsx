@@ -49,7 +49,7 @@ const ProgressTechnology = (props: ProgressTechnologyProps) => {
             <p>{props.name}</p>
             <p>{`${props.progress}%`}</p>
         </ProgressLabelComponent>
-        <ProgressComponent variant="success" now={props.progress} />
+        <ProgressComponent variant="success" now={props.progress} animated />
     </>
 }
 

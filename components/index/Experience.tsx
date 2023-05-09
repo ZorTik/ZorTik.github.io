@@ -49,21 +49,8 @@ const ProgressTechnology = (props: ProgressTechnologyProps) => {
             <p>{props.name}</p>
             <p>{`${props.progress}%`}</p>
         </ProgressLabelComponent>
-        <ProgressComponent variant="success" now={props.progress} animated />
+        <ProgressComponent variant="success" now={props.progress} />
     </>
-}
-const AboutMeText = ({value, speed}: {value: string, speed: number}) => {
-    const [text, setText] = useState<string>("");
-
-    useEffect(() => {
-        let sub = 0;
-        const i = setInterval(() => {
-            if (sub > value.length) clearInterval(i);
-            setText(value.substring(0, ++sub));
-        }, speed);
-    }, [speed, value]);
-
-    return <p>{text}</p>;
 }
 
 const Experience = () => {
@@ -92,7 +79,7 @@ const Experience = () => {
                     </Col>
                     <Col className={styles.expLore} xl={5}>
                         <h1 id="about">Who am I?</h1>
-                        <AboutMeText speed={2} value={"Since the beginning, when I dreamt about building something great, am passionate developer who loves making innovative solutions, that make real impact. As member of successful game building community, I gained a lot of experience in software development. Some of my public works are listed below or on my GitHub. So, I just ask: Is there anything better than just trying it with me? You can contact me using my social media on the bottom of this page."} />
+                        <p>Since the beginning, when I dreamt about building something great, am passionate developer who loves making innovative solutions, that make real impact. As member of successful game building community, I gained a lot of experience in software development. Some of my public works are listed below or on my GitHub. So, I just ask: Is there anything better than just trying it with me? You can contact me using my social media on the bottom of this page.</p>
                     </Col>
                 </Row>
             </Container>
